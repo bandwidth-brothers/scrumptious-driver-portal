@@ -3,7 +3,12 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  BASE_AUTH_URL: 'http://localhost:8080/auth',
+  BASE_RESTAURANT_URL: 'http://localhost:8080/restaurant',
+  BASE_DRIVER_URL: 'http://localhost:8080/driver',
+  BASE_ORDERS_URL: 'http://localhost:8080/order/orders',
+  BASE_CUSTOMER_URL: 'http://localhost:8080/customer/customers',
 };
 
 /*
