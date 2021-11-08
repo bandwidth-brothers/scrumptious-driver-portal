@@ -5,6 +5,8 @@ import { Address } from 'src/app/entities/address';
 import { RegisterDto } from 'src/app/entities/registerDto';
 import { AccountService } from 'src/app/services/account.service';
 import { HttpErrorResponse } from '@angular/common/http';
+import { Router } from '@angular/router';
+import { NotificationService } from 'src/app/services/notification.service';
 
 @Component({
   selector: 'app-register',
@@ -47,7 +49,9 @@ export class RegisterComponent implements OnInit {
   })
 
 
-  constructor(private accountService: AccountService) { }
+  constructor(private accountService: AccountService,
+    private router: Router,
+    private notificateService: NotificationService) { }
 
   ngOnInit(): void {
   }
@@ -80,6 +84,7 @@ export class RegisterComponent implements OnInit {
     this.accountService.createAccount(registerDto).subscribe(
       (res) => {
         console.log(res);
+        this.notificateService.openSnack("Register Successfully");
       },
       (err: HttpErrorResponse) => {
         console.log(err.status + " : " + err.message);

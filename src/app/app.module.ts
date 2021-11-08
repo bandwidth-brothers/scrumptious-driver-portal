@@ -18,10 +18,15 @@ import { MatButtonModule } from '@angular/material/button';
 import { LayoutModule } from '@angular/cdk/layout';
 import { MatSelectModule } from '@angular/material/select';
 import { CustomMaterialModule } from './custom-material/custom-material.module';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { MatStepperModule } from '@angular/material/stepper';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { LayoutComponent } from './shared/layout/layout.component';
+import { AuthenticationGuard } from './authentication.guard';
+import { NotificationService } from './services/notification.service';
+import { RouterModule } from '@angular/router';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
+
 
 
 @NgModule({
@@ -50,9 +55,12 @@ import { LayoutComponent } from './shared/layout/layout.component';
     CustomMaterialModule.forRoot(),
     HttpClientModule,
     MatStepperModule,
-    MatGridListModule
+    MatGridListModule,
+    RouterModule,
+    MatSnackBarModule
   ],
-  providers: [],
+  providers: [
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
